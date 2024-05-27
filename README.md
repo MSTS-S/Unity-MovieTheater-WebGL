@@ -14,47 +14,39 @@ In this Unity3D project, a movie theater is created. webGL is selected as the bu
 
 
 
-## 操作方法
+## インタフェース構成及び操作方法
 初めに映画館のインタフェースの画像を示します．
+<br><br>
 ![MovieTheaterのインタフェース](Document/MovieTheater_Screenshot2.png)
+<br>
 
+**① 角度表示UI**
 
+ユーザの向きはカーソルキーにより変更可能です．カーソルキーでユーザの向きを変更すると，ユーザのy軸方向の回転に伴ってこちらのUIの矢印方向が回転します．向きを正面に戻したい（初期状態にリセットしたい）場合，こちらのUIをクリックすることで向きがリセットされ，z軸正の方向を向くようになります．
 
-## 片目（左目）でのみ描画される問題
-[Unity Documentation](https://docs.unity3d.com/ja/2022.3/Manual/SinglePassStereoRendering.html)によると，Unity XRでは次の2つのStereo Rendering Modeが提供されています．
+**② 映像再生UI**
 
+こちらのボタンをクリックして頂くと，映画館での上映がスタートします．はじめは天井のライトが徐々に暗くなり，次に側面壁のライトが徐々に暗くなり，というように映画館の雰囲気を味わうことが可能です．なお，一時停止機能はつけていないため，再生を始めると映像終了まで自動的にフローが進行します．
 
+**③ 音量調整UI**
 
+こちらのボタンをクリックして頂くと，映画館で放映される映像の音量のOn/Offが設定できます．初期状態は先ほど示したスクリーンショットのような状態で，一度クリックするとUIが変わりミュート状態になります．なお，音量はOn/Offのバイナリ設定です．
 
-## 全天球シェーダー（両眼対応 Sphereモデル）
-片目（左目）でのみ描画される問題は作成されたシェーダーがインスタンス化に対応していないことが原因であるため，インスタンス化に対応するようなシェーダーに変更することでこの問題は解決されます．
-具体的な両眼対応の全天球シェーダーは次の手順により作成することができます．なお，以下に示す解決手法は[2018.4 Unity Documentation - Single Pass Instanced rendering](https://docs.unity3d.com/2018.4/Documentation/Manual/SinglePassInstancing.html)を参考にしたものです．
+**④ 座席設定UI**
 
-1. struct appdata{}に次の一文を追記．
-   - UNITY_VERTEX_INPUT_INSTANCE_ID
-2. struct v2f{}の中に次の一文を追記．
-   - UNITY_VERTEX_OUTPUT_STEREO
-3. v2f vert(appdata v){}の中に次の三文を追記（なお追記箇所は v2f o;の直後）.
-   - UNITY_SETUP_INSTANCE_ID(v);
-   - UNITY_INITIALIZE_OUTPUT(v2f, o);
-   - UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
+こちらのUIでは，ユーザの座席位置を確認及び変更することができます．現在ユーザが座っているシート(G-06)は赤色で表示されるように設定されており，ほかの座席をクリックすることで座席移動することが可能です．なおこちらのUIはサイズが大きいため，右上の✕ボタン（④の左隣のボタン）をクリックすることでUIを最小化することが可能です．
 
+**⑤ 座席表示UI**
 
+こちらのUIは④の座席設定UIが最小化された際に表示されるUIです．そのため，④とこちらの⑤のUIはいずれか一方のみが画面上に表示されることになります．こちらのUIをクリックすると④の座席設定UIが表示され，ユーザの座席位置の確認及び変更が可能となります．
 
 
 
 ## Unity Projectの利用について
-本リポジトリのUnityProject/BinocularPanoramicSphereShaderに含まれるUnity ProjectはOculus Integration (Deprecated)が含まれていません．そのためQuest利用時はUnity Projectを起動した後，[こちらのページ](https://assetstore.unity.com/packages/tools/integration/oculus-integration-deprecated-82022)からOculus Integrationをダウンロードをした後にご利用をお願い致します．なお，本ページに記載されているUnity ProjectのEditor Versionは2022.3.28f1です．
+本リポジトリのUnityProjectのEditor Versionは2021.3.9f1です．またWebGLでBuildした際の動画の指定方法について注意点があります．
+
+> [!Note]
+> Projection > VideoPlayer に Video Player Componentがアタッチされており，ここで上映される映像を指定しています．Video Player Componentにおける映像指定方法はVideo Clip（Unityでのアウトレット接続）とURLの二通りの指定方法がありますが，WebGLに対応した映像指定方法はURLのみとなっています．そのためWebGLで上映したい映像がある場合，一度サーバーに映像をアップロード後にURL指定をして頂きますよう，よろしくお願いいたします．
 
 また，MainSceneはWorkSpace > Sceneの階層にあります．
 <br><br>
-
-
-
-## 参考文献
-1. <a name="Quest2"></a>[Meta Quest 2: Immersive All-In-One VR Headset — Meta Store](https://www.meta.com/jp/quest/products/quest-2/)
-2. <a name="StereoRendering"></a>[Unity - Manual: Stereo rendering](https://docs.unity3d.com/ja/2022.3/Manual/SinglePassStereoRendering.html)
-3. <a name="PerformanceRec"></a>[Performance recommendations for Unity - Mixed Reality | Microsoft Learn](https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/performance-recommendations-for-unity?tabs=openxr)
-4. <a name="Solution"></a>[【Unity】Quest2ビルド時に右目しか描画されない不具合の修正](https://zenn.dev/dami/articles/8f436e67cbf882)
-5. <a name="UniDoc"></a>[Unity - Manual:  Single Pass Instanced rendering](https://docs.unity3d.com/ja/2018.4/Manual/SinglePassInstancing.html)
-6. <a name="OculusIntegration"></a>[Oculus Integration (Deprecated) | Integration | Unity Asset Store](https://assetstore.unity.com/packages/tools/integration/oculus-integration-deprecated-82022)
