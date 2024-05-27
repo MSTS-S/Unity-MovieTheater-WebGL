@@ -4,12 +4,12 @@ In this Unity3D project, a movie theater is created. webGL is selected as the bu
 <p align="center">
   <img src="Document/MovieTheater_Screenshot1.png" />
 </p>
-<br><br>
+<br>
 
 
 
 ## 概要
-本Unity ProjectはWebGLをbuild targetとした映画館です．もともとVR空間における映画館であったものをWebブラウザ上でも楽しめるようにスクリプト改変等を行いました．自作の映像さえ用意できれば，オリジナル映像を放映する映画館を誰でも作ることができます．
+本Unity ProjectはWebGLをbuild targetとした映画館です．もともとVR空間における映画館であったものをWebブラウザ上でも楽しめるようにスクリプト改変等を行いました．自作の映像さえ用意できれば，オリジナル映像を放映する映画館を誰でも作ることができます．なお，映像のプロジェクション昨日は[VR Cinema for Mobile](https://assetstore.unity.com/packages/3d/props/interior/vr-cinema-for-mobile-150120)に含まれるアセットを用いました．
 <br><br>
 
 
@@ -47,7 +47,12 @@ In this Unity3D project, a movie theater is created. webGL is selected as the bu
 本リポジトリのUnityProjectのEditor Versionは2021.3.9f1です．またWebGLでBuildした際の動画の指定方法について注意点があります．
 
 > [!Note]
-> Projection > VideoPlayer に Video Player Componentがアタッチされており，ここで上映される映像を指定しています．Video Player Componentにおける映像指定方法はVideo Clip（Unityでのアウトレット接続）とURLの二通りの指定方法がありますが，WebGLに対応した映像指定方法はURLのみとなっています．そのためWebGLで上映したい映像がある場合，一度サーバーに映像をアップロード後にURL指定をして頂きますよう，よろしくお願いいたします．
+> Projection > VideoPlayer には Video Player Component がアタッチされており，こちらで上映する映像を指定することができます．Video Player Component での映像の指定方法には，Video Clip（Unity でのアウトレット接続）と URL、二つの方法があります．しかし，WebGL に対応する映像の指定方法は URL のみです．そのため，WebGL で上映したい映像がある場合は映像をサーバーにアップロードしてから URL での指定をお願いいたします．
+
+<br>
+
+![UnityEditorのスクリーンショット](Document/UnityEditor_Screenshot.png)
+<br>
 
 また，MainSceneはWorkSpace > Sceneの階層にあります．
 <br><br>
