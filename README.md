@@ -1,4 +1,4 @@
-# Unity-BinocularPanoramicSphereShader
+# Unity-MovieTheater-WebGL
 This Unity3D shader supports "stereo vision" in panoramic spheres when using an HMD (Head-Mounted Display).
 <br><br>
 
