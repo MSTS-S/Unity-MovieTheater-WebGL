@@ -1,6 +1,8 @@
 # Unity-MovieTheater-WebGL
 In this Unity3D project, a movie theater is created. webGL is selected as the build target.
 <br><br>
+![MovieTheaterのスクリーンショット](Document/MovieTheater.png)
+<br><br>
 
 
 
