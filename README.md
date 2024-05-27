@@ -39,6 +39,7 @@ In this Unity3D project, a movie theater is created. webGL is selected as the bu
 **⑤ 座席表示UI**
 
 こちらのUIは④の座席設定UIが最小化された際に表示されるUIです．そのため，④とこちらの⑤のUIはいずれか一方のみが画面上に表示されることになります．こちらのUIをクリックすると④の座席設定UIが表示され，ユーザの座席位置の確認及び変更が可能となります．
+<br><br>
 
 
 
