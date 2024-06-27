@@ -9,7 +9,7 @@ In this Unity3D project, a movie theater is created. webGL is selected as the bu
 
 
 ## 概要
-本Unity ProjectはWebGLをbuild targetとした映画館です．もともとVR空間における映画館であったものをWebブラウザ上でも楽しめるようにスクリプト改変等を行いました．自作の映像さえ用意できれば，オリジナル映像を放映する映画館を誰でも作ることができます．なお，映像のプロジェクション昨日は[VR Cinema for Mobile](https://assetstore.unity.com/packages/3d/props/interior/vr-cinema-for-mobile-150120)に含まれるアセットを用いました．
+本Unity ProjectはWebGLをbuild targetとした映画館です．もともとVR空間における映画館であったものをWebブラウザ上でも楽しめるようにスクリプト改変等を行いました．自作の映像さえ用意できれば，オリジナル映像を放映する映画館を誰でも作ることができます．なお，映像のプロジェクション機能は[VR Cinema for Mobile](https://assetstore.unity.com/packages/3d/props/interior/vr-cinema-for-mobile-150120)に含まれるアセットを用いました．
 <br><br>
 
 
